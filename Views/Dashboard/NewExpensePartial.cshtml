@@ -1,0 +1,95 @@
+@model Transaction
+
+<div class="modal fade" id="newexpense" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-md modal-notify" role="document">
+      <!--Content-->
+      <div class="modal-content">
+        <!--Header-->
+        <div class="modal-header bg-gradient-primary">
+          <p class="heading lead">New Expense</p>
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class=""><i class="fas fa-times"></i></span>
+          </button>
+        </div>
+
+        <!--Body-->
+        <div class="modal-body">
+          <div>
+            <!-- <i class="fas fa-check fa-3x mb-3 animated lightSpeedIn"></i> -->
+            <p class="mb-0">
+                <em>“Budgeting has only one rule: Do not go over budget.”</em>
+                <span class="">- Leslie Tayne</span>
+            </p>
+          </div>
+          <form asp-controller="Dashboard" asp-action="CreateExpense">
+            <!-- Material input name -->
+            @{
+              if(ViewBag.test != null){
+                <input type="hidden" name="field" value="expense">
+              } else {
+                <input type="hidden" name="field" value="dashboard">
+              }
+            }
+            <div class="md-form form-sm mb-2">
+                <i class="fas fa-file-invoice-dollar prefix"></i>
+                <input asp-for="Name" id="goalname" type="text" class="form-control form-control-sm">
+                <label asp-for="Name" for="goalname">Give a Name for this Expense</label>
+                <span class="text-danger" asp-validation-for="Name"></span>
+            </div>
+
+            <div class="md-form form-sm mb-2">
+                <i class="fas fa-calendar-day prefix"></i>
+                <input asp-for="Date" type="text" id="datepicker2" class="form-control form-control-sm">
+                <label asp-for="Date" for="datepicker2" class="">Date of Expense</label>
+                <span class="text-danger" asp-validation-for="Date"></span>
+            </div>
+            
+
+            <!-- Material input subject -->
+      
+               
+            <div class="md-form form-sm mb-2">
+                <i class="fas fa-dollar-sign prefix"></i>
+                <input asp-for="Amount" type="number" id="amountspent" class="form-control form-control-sm">
+                <label asp-for="Amount"for="amountspent" class="">How much did you spend?</label>
+                <span class="text-danger" asp-validation-for="Amount"></span>
+            </div>
+
+            <div class="md-form form-sm mb-2">
+                <div class="dropdown form-control form-control-sm">
+                    <div class="select">
+                        <span>Choose Category</span>
+                        <i class="fa fa-chevron-left"></i>
+                    </div>
+                    <input type="hidden" name="category">
+                    <ul class="dropdown-menu">
+                    @{
+                        foreach(Category category in ViewBag.Categories)
+                        {
+                        <li id="@category.CategoryId">@category.Name</li>
+                        }
+                    }
+                    </ul>
+                </div>
+            </div>
+             
+           
+
+            <!-- <div class="md-form form-sm">
+                <i class="fas fa-pencil-alt prefix"></i>
+                <textarea asp-for="Description" type="text" id="materialFormMessageModalEx" class="md-textarea form-control"></textarea>
+                <label asp-for="Description" for="materialFormMessageModalEx" class="">Give a short description!</label>
+                <span class="text-danger" asp-validation-for="Description"></span>
+            </div> -->
+
+            <div class="text-center mt-4 mb-2">
+            <button class="btn waves-effect waves-light bg-gradient-primary text-white">Report!</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--/.Content-->
+    </div>
+  </div>
+<!-- lg modal -->

@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@section AddToHead{
+    <link href="~/css/index.css" rel="stylesheet" type="text/css" />
+}
+
+<div class="text-center container" style="margin-top: 10%;">
+    <div class="row">
+        <div class="left-info col-md-6 vertical-align-center mb-2">
+            <h1 style="font-size: 2.5em; margin-top: 20%" class="">Keep track of your Money, Keep track of your Life</h1>
+            <a asp-controller="Home" asp-action="RegisterPage" class="startedbtn btn btn-lg btn-secondary">Get Started for Free</a>
+        </div>
+        <div class="right-info col-md-6">
+            <img src="~/images/tech_finance.jpeg" alt="tech-finance" class="w-100">
+        </div>
+    </div>    
+</div>
+
+@section Scripts{
+    <script src="~/js/index_canvas.js"></script>
+}

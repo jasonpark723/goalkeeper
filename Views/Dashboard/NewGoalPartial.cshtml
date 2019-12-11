@@ -1,0 +1,84 @@
+@model Goal
+
+<div class="modal fade" id="newgoal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-lg modal-notify" role="document">
+      <!--Content-->
+      <div class="modal-content">
+        <!--Header-->
+        <div class="modal-header bg-gradient-primary">
+          <p class="heading lead">Set a New Goal</p>
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class=""><i class="fas fa-times"></i></span>
+          </button>
+        </div>
+
+        <!--Body-->
+        <div class="modal-body">
+          <div>
+            <!-- <i class="fas fa-check fa-3x mb-3 animated lightSpeedIn"></i> -->
+            <p class="mb-0">
+                <em>“If you want to be happy, set a goal that commands your thoughts, liberates your energy and inspires your hopes.”</em>
+                <span class="">- Andrew Carnegie</span>
+            </p>
+          </div>
+          <form asp-controller="Dashboard" asp-action="CreateGoal">
+            <!-- Material input name -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="md-form form-sm mb-2">
+                        <i class="fas fa-futbol prefix"></i>
+                        <input asp-for="Name" id="goalname" type="text" class="form-control form-control-sm">
+                        <label asp-for="Name" for="goalname">Give your goal a name</label>
+                        <span class="text-danger" asp-validation-for="Name"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="md-form form-sm mb-2">
+                        <i class="fas fa-calendar-day prefix"></i>
+                        <input asp-for="ReachBy" type="text" id="datepicker" class="form-control form-control-sm">
+                        <label asp-for="ReachBy" for="datepicker" class="">Goal End Date</label>
+                        <span class="text-danger" asp-validation-for="ReachBy"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Material input subject -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="md-form form-sm mb-2">
+                        <i class="fas fa-tag prefix"></i>
+                        <input asp-for="CurrentAmount" type="number" id="currentamount" class="form-control form-control-sm">
+                        <label asp-for="CurrentAmount"for="currentamount" class="">How much have you raised so far?</label>
+                        <span class="text-danger" asp-validation-for="CurrentAmount"></span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="md-form form-sm mb-2">
+                        <i class="fas fa-tag prefix"></i>
+                        <input asp-for="GoalAmount" type="number" id="GoalAmount" class="form-control form-control-sm">
+                        <label asp-for="GoalAmount" for="GoalAmount" class="">Goal Amount</label>
+                        <span class="text-danger" asp-validation-for="GoalAmount"></span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Material textarea message -->
+            <div class="md-form form-sm">
+                <i class="fas fa-pencil-alt prefix"></i>
+                <textarea asp-for="Description" type="text" id="materialFormMessageModalEx" class="md-textarea form-control"></textarea>
+                <label asp-for="Description" for="materialFormMessageModalEx" class="">Give a short description!</label>
+                <span class="text-danger" asp-validation-for="Description"></span>
+            </div>
+
+            <div class="text-center mt-4 mb-2">
+            <button class="btn waves-effect waves-light bg-gradient-primary text-white">GOAL~!</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--/.Content-->
+    </div>
+  </div>
+<!-- lg modal -->

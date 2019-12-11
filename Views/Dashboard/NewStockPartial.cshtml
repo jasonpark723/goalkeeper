@@ -1,0 +1,47 @@
+@model Stock
+
+<div class="modal fade" id="newstock" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-sm modal-notify" role="document">
+      <!--Content-->
+      <div class="modal-content" id="modalstockcontent">
+        <!--Header-->
+        <div class="modal-header bg-gradient-info">
+          <p class="heading lead">Add <span id="stockSymbol"></span> to profile</p>
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class=""><i class="fas fa-times"></i></span>
+          </button>
+        </div>
+
+        <!--Body-->
+        <div class="modal-body">
+          <div>
+          </div>
+          <form asp-controller="Dashboard" asp-action="CreateStock">
+            <!-- Material input name -->
+     
+            <div class="md-form form-sm mb-2">
+                <i class="fas fa-align-left prefix"></i>
+                <input asp-for="Symbol" id="stock-symbol" type="text" class="form-control form-control-sm" readonly value=" ">
+                <label asp-for="Symbol" for="stock-symbol">Stock Symbol</label>
+                <span class="text-danger" asp-validation-for="Symbol"></span>
+            </div>
+
+            <div class="md-form form-sm mb-2">
+                <i class="fas fa-hashtag prefix"></i>
+                <input asp-for="Quantity" type="number" value="1" id="Quantity" class="form-control form-control-sm" required>
+                <label asp-for="Quantity"for="Quantity" class="">Quantity</label>
+                <span class="text-danger" asp-validation-for="Quantity"></span>
+            </div>
+
+
+            <div class="text-center mt-4 mb-2">
+            <button class="btn waves-effect waves-light bg-gradient-info text-white">Submit!</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--/.Content-->
+    </div>
+  </div>
+<!-- lg modal -->

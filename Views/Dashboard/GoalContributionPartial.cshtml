@@ -1,0 +1,42 @@
+<div class="modal fade" id="addamount" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog modal-dialog-centered modal-sm modal-notify" role="document">
+      <!--Content-->
+      <div class="modal-content">
+        <!--Header-->
+        <div class="modal-header bg-gradient-primary">
+          <p class="heading lead">Add Funds</p>
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true" class=""><i class="fas fa-times"></i></span>
+          </button>
+        </div>
+
+        <!--Body-->
+        <div class="modal-body">
+          <div>
+            <!-- <i class="fas fa-check fa-3x mb-3 animated lightSpeedIn"></i> -->
+            <p class="mb-0">
+                <em>“A year from now you may wish you had started today.”</em>
+                <span class="">- Karen Lamb</span>
+            </p>
+          </div>
+          <form asp-controller="Dashboard" asp-action="AddAmountGoal">
+            <input type="hidden" id="goalId" name="goalId" value="">
+
+            <div class="md-form form-sm">
+                <i class="fas fa-dollar-sign prefix"></i>
+                <input type="text" id="contribution" class="md-input form-control" name="additionalAmount"></input>
+                <label for="contribution" class="">contribution</label>
+                <span class="text-danger"></span>
+            </div>
+
+            <div class="text-center mt-4 mb-2">
+            <button class="btn waves-effect waves-light bg-gradient-primary text-white">GOAL~!</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!--/.Content-->
+    </div>
+  </div>
+<!-- lg modal -->

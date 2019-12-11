@@ -1,0 +1,351 @@
+@section AddToHead{
+    <link href="~/css/dashboard.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
+}
+
+<div class="main margin-left-250">
+    <nav class="nav" style="position: absolute; z-index:1;">
+ 
+    </nav>
+
+    <div class="header bg-gradient-primary pb-8 pt-5 pt-md-8 animsition"
+        data-animsition-in-class="fade-in-down"
+        data-animsition-in-duration="300"
+        data-animsition-out-class="fade-out-up"
+        data-animsition-out-duration="300">
+        <div class="container-fluid">
+            <div class="row" style="margin: 0 auto;">
+                <div class="col-xl-3 col-lg-6">
+                        <div class="card card-stats mb-4 mb-xl-0 animsition"
+                            data-animsition-in-class="fade-in-down"
+                            data-animsition-in-duration="300"
+                            data-animsition-out-class="fade-out-up"
+                            data-animsition-out-duration="300">
+                            <a class="nav-link animsition-link p-0" asp-controller="Dashboard" asp-action="Expense">
+                                <div class="card-body panel">
+                                    <div class="row">
+                                        <div class="col">
+                                            <h6 class="card-title text-uppercase text-muted mb-0">Weekly Spending</h6>
+                                            <span class="h2 font-weight-bold mb-0">$@ViewBag.thisWeekTotal</span>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="icon icon-shape bg-danger text-white rounded-circle shadow">
+                                                <i class="fas fa-pizza-slice"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="mt-3 mb-0 text-muted text-sm">
+                                        @{
+                                            if(ViewBag.MoreSpending)
+                                            {
+                                                <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> @ViewBag.spendingPercent%</span>
+                                            }
+                                            else
+                                            {
+                                                <span class="text-danger mr-2"><i class="fa fa-arrow-down"></i> @ViewBag.spendingPercent%</span>
+                                            }
+                                        }
+                                        <span class="text-nowrap">Since last week</span>
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                </div>
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card card-stats mb-4 mb-xl-0 animsition"
+                        data-animsition-in-class="fade-in-down"
+                        data-animsition-in-duration="600"
+                        data-animsition-out-class="fade-out-up"
+                        data-animsition-out-duration="600">
+                        <a class="nav-link animsition-link p-0" asp-controller="Dashboard" asp-action="Investment">
+                            <div class="card-body panel">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Investment</h5>
+                                        <span class="h2 font-weight-bold mb-0">$@ViewBag.lastWeekTotal</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-warning text-white rounded-circle shadow">
+                                            <i class="fas fa-money-bill-alt"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-3 mb-0 text-muted text-sm">
+                                    <span class="text-success mr-2">20%</span>
+                                    <span class="text-nowrap">last month</span>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card card-stats mb-4 mb-xl-0 animsition"
+                        data-animsition-in-class="fade-in-down"
+                        data-animsition-in-duration="900"
+                        data-animsition-out-class="fade-out-up"
+                        data-animsition-out-duration="900">
+                        <a class="nav-link animsition-link p-0" asp-controller="Dashboard" asp-action="Expense">
+                            <div class="card-body panel">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title text-uppercase text-muted mb-0">@ViewBag.FavoriteGoal.Name</h5>
+                                        <span class="h2 font-weight-bold mb-0">$@ViewBag.FavoriteGoal.CurrentAmount</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-yellow text-white rounded-circle shadow">
+                                            <i class="fas fa-seedling"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-3 mb-0 text-muted text-sm">
+                                    <span class="text-success mr-2">@ViewBag.FavoriteGoal.completedPercent()% reached</span>
+    
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-6">
+                    <div class="card card-stats mb-4 mb-xl-0 animsition"
+                        data-animsition-in-class="fade-in-down"
+                        data-animsition-in-duration="1200"
+                        data-animsition-out-class="fade-out-up"
+                        data-animsition-out-duration="1200">
+                        <a class="nav-link animsition-link p-0" asp-controller="Dashboard" asp-action="Expense">
+                            <div class="card-body panel">
+                                <div class="row">
+                                    <div class="col">
+                                        <h5 class="card-title text-uppercase text-muted mb-0">Retirement</h5>
+                                        <span class="h2 font-weight-bold mb-0">Roth IRA</span>
+                                    </div>
+                                    <div class="col-auto">
+                                        <div class="icon icon-shape bg-info text-white rounded-circle shadow">
+                                            <i class="fas fa-home"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="mt-3 mb-0 text-muted text-sm">
+                                    <span class="text-success mr-2">$1000</span>
+                                    <span class="text-nowrap">invested this year</span>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid mt--7">
+            <!-- Page content -->
+            <div class="row" style="margin: 0 auto;">
+                <div class="col-xl-8 mb-5 mb-xl-0">
+                    <div class="card bg-gradient-default shadow animsition"
+                        data-animsition-in-class="fade-in-right"
+                        data-animsition-in-duration="900"
+                        data-animsition-out-class="fade-out-left"
+                        data-animsition-out-duration="900">
+                        <div class="card-header bg-transparent">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h6 class="text-uppercase text-light ls-1 mb-1">2019</h6>
+                                    <h2 class="text-white mb-0">Monthly Overview</h2>
+                                </div>
+                                <div class="col">
+                                    <ul class="nav nav-pills justify-content-end">
+                                        <li class="nav-item mr-2 mr-md-0" data-toggle="chart" data-target="#chart-sales" data-update="{&quot;data&quot;:{&quot;datasets&quot;:[{&quot;data&quot;:[0, 20, 10, 30, 15, 40, 20, 60, 60]}]}}" data-prefix="$" data-suffix="k">
+                                            <a href="#" class="nav-link py-2 px-3 active" data-toggle="tab">
+                                                <span class="d-none d-md-block">Month</span>
+                                                <span class="d-md-none">M</span>
+                                            </a>
+                                        </li>
+                                        <li class="nav-item" data-toggle="chart" data-target="#chart-sales" data-update="{&quot;data&quot;:{&quot;datasets&quot;:[{&quot;data&quot;:[0, 20, 5, 25, 10, 30, 15, 40, 40]}]}}" data-prefix="$" data-suffix="k">
+                                            <a href="#" class="nav-link py-2 px-3" data-toggle="tab">
+                                                <span class="d-none d-md-block">Week</span>
+                                                <span class="d-md-none">W</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <!-- Chart -->
+                            <div class="chart"><div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;"><div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div></div><div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;"><div style="position:absolute;width:200%;height:200%;left:0; top:0"></div></div></div>
+                                <!-- Chart wrapper -->
+                                <canvas id="chart-overview" class="chart-canvas chartjs-render-monitor" width="1362" height="700" style="display: block; height: 350px; width: 681px;"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="card shadow animsition"
+                        data-animsition-in-class="fade-in-left"
+                        data-animsition-in-duration="900"
+                        data-animsition-out-class="fade-out-right"
+                        data-animsition-out-duration="900">
+                        <div class="card-header bg-transparent">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h6 class="text-uppercase text-muted ls-1 mb-1">This month</h6>
+                                    <h2 class="mb-0">Spending pattern</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <!-- Chart -->
+                            <div class="chart" style="positive: relative;">
+                                <div class="chartjs-size-monitor" style="position: absolute; left: 0px; top: 0px; right: 0px; bottom: 0px; overflow: hidden; pointer-events: none; visibility: hidden; z-index: -1;">
+                                    <div class="chartjs-size-monitor-expand" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                        <div style="position:absolute;width:1000000px;height:1000000px;left:0;top:0"></div>
+                                    </div>
+                                    <div class="chartjs-size-monitor-shrink" style="position:absolute;left:0;top:0;right:0;bottom:0;overflow:hidden;pointer-events:none;visibility:hidden;z-index:-1;">
+                                        <div style="position:absolute;width:200%;height:200%;left:0; top:0"></div>
+                                    </div>
+                                </div>
+                                <canvas id="chart-spending-pattern" class="chart-canvas chartjs-render-monitor" style="display: block; height: 350px; width: 100%;" width="602" height="700"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5" style="margin: 0 auto;">
+                <div class="col-xl-8 mb-5 mb-xl-0">
+                    <div class="card shadow animsition"
+                        data-animsition-in-class="fade-in-up"
+                        data-animsition-in-duration="300"
+                        data-animsition-out-class="fade-out-down"
+                        data-animsition-out-duration="300">
+                        <div class="card-header border-0">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h3 class="mb-0">Goals</h3>
+                                </div>
+                                <div class="col text-right">
+                                    <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#newgoal">New</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <!-- Projects table -->
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">What are you saving for?</th>
+                                        <th scope="col">saved</th>
+                                        <th scope="col">budget</th>
+                                        <th scope="col" >completed</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @{
+
+                                 
+                                    for(var i = 0; i < ViewBag.allGoals.Count; i++)
+                                    {
+                                    <tr>
+                                        <th scope="row">
+                                            @ViewBag.allGoals[i].Name
+                                        </th>
+                                        <td>
+                                            $@String.Format("{0:n0}", ViewBag.allGoals[i].CurrentAmount)
+                                        </td>
+                                        <td>
+                                            $@String.Format("{0:n0}", ViewBag.allGoals[i].GoalAmount)
+                                        </td>
+                                        <td class="pr-0">
+                                            <div class="d-flex align-items-center">
+                                                <span class="mr-2">@ViewBag.allGoals[i].completedPercent()%</span>
+                                                <div>
+                                                    <div class="progress">
+                                                        <div class="progress-bar bg-gradient-@ViewBag.gradients[i]" role="progressbar" aria-valuenow="@ViewBag.allGoals[i].completedPercent()" aria-valuemin="0" aria-valuemax="100" style="width: @ViewBag.allGoals[i].completedPercent()%;"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="pulse ml-3">
+                                                    <button data-toggle="modal" data-target="#addamount" data-goalId="@ViewBag.allGoals[i].GoalId"><i class="fas fa-plus text-primary text-center"></i></button>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    }
+                                }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-4">
+                    <div class="card shadow animsition"
+                        data-animsition-in-class="fade-in-up"
+                        data-animsition-in-duration="300"
+                        data-animsition-out-class="fade-out-down"
+                        data-animsition-out-duration="300">
+                        <div class="card-header border-0">
+                            <div class="row align-items-center">
+                                <div class="col">
+                                    <h3 class="mb-0">Expense history</h3>
+                                </div>
+                                <div class="col text-right">
+                                    <button type="button" class="btn btn-primary waves-effect waves-light" data-toggle="modal" data-target="#newexpense">New</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <!-- Projects table -->
+                            <table class="table align-items-center table-flush">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Amount</th>
+                                        <th scope="col">Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                @{
+                                    foreach(Transaction item in ViewBag.ExpenseHistory)
+                                    {
+                                    <tr>
+                                        <th scope="row">
+                                            @item.Name
+                                        </th>
+                                        <td>
+                                            $@item.Amount
+                                        </td>
+                                        <td>
+                                            @item.Date.Date.ToString("MM/dd")
+                                        </td>
+                                    </tr>
+                                    }
+                                }
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+
+<!-- lg modal -->
+<partial name="NewGoalPartial.cshtml" />
+
+<partial name="GoalContributionPartial.cshtml" />
+
+<partial name="NewExpensePartial.cshtml" />
+
+
+
+
+@section Scripts{
+    <script>
+        var donutCategories = @Html.Raw(Json.Serialize(ViewBag.donutCategory));
+        var donutTotal = @Html.Raw(Json.Serialize(ViewBag.donutTotal));
+        var barMonth = @Html.Raw(Json.Serialize(ViewBag.barMonth));
+        var barTotal = @Html.Raw(Json.Serialize(ViewBag.barTotal));
+    </script>
+    <script src="~/js/dashboard_canvas.js"></script>
+    <script src="~/js/dashboard.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+}
